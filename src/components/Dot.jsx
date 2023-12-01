@@ -18,6 +18,10 @@ const Dot = (props) => {
         className="dot"
         style={{ background: color }}
         onDoubleClick={() => setIsEditing(true)}
+        onContextMenu={(e) => {
+          e.preventDefault(); // prevent the default behaviour when right clicked
+          setIsEditing(true);
+        }}
       >
         {isEditing && (
           <div>
