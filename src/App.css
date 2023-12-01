@@ -4,6 +4,7 @@
 
 .grid {
   border: 3px solid #333;
+  border-radius: 10px;
 }
 
 .dot {
@@ -16,5 +17,20 @@
 }
 
 .dot:hover {
+  cursor: pointer;
+}
+
+.picker {
+  border: 3px solid #333;
+  background: aliceblue;
+  border-radius: 10px;
+  cursor: default;
+}
+
+.picker-circle {
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
 }
