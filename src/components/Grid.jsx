@@ -3,15 +3,15 @@ import { useState } from "react";
 
 const Grid = () => {
   const [dots, setDots] = useState([
-    { id: 0, content: "Foo", color: "#ff0000" },
-    { id: 1, content: "Bar", color: "#00ff00" },
-    { id: 2, content: "Baz", color: "#0000ff" },
+    { id: 0, color: "#66C2A5" },
+    { id: 1, color: "#FC8D62" },
+    { id: 2, color: "#8DA0CB" },
   ]);
 
   return (
     <div className="grid">
       {dots.map((dot) => (
-        <Dot content={dot.content} key={dot.id} color={dot.color} />
+        <Dot key={dot.id} color={dot.color} />
       ))}
     </div>
   );

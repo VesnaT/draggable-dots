@@ -16,21 +16,18 @@ const Dot = (props) => {
         onDoubleClick={() => setIsEditing(true)}
       >
         {isEditing ? (
-          <div>
-            <textarea
-              className="text-input"
-              value={tempColor}
-              onChange={(e) => setTempColor(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  setColor(tempColor);
-                  setIsEditing(false);
-                } else if (e.key === "Escape") {
-                  setIsEditing(false);
-                }
-              }}
-            />
-          </div>
+          <textarea
+            value={tempColor}
+            onChange={(e) => setTempColor(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                setColor(tempColor);
+                setIsEditing(false);
+              } else if (e.key === "Escape") {
+                setIsEditing(false);
+              }
+            }}
+          />
         ) : (
           ""
         )}
