@@ -12,7 +12,7 @@ const Circle = (props) => {
       style={{
         background: background,
         border: border,
-        "box-shadow": boxShadow,
+        boxShadow: boxShadow,
       }}
       onClick={() => props.calback(props.color)}
     />

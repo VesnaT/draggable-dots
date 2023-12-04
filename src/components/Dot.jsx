@@ -1,5 +1,5 @@
 import Draggable from "react-draggable";
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import ColorPicker from "./ColorPicker";
 
 const Dot = (props) => {
@@ -10,6 +10,19 @@ const Dot = (props) => {
     setColor(col);
     setIsEditing(false);
   };
+
+  const escFunction = useCallback((event) => {
+    if (event.key === "Escape") {
+      setIsEditing(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("keydown", escFunction, false);
+    return () => {
+      document.removeEventListener("keydown", escFunction, false);
+    };
+  }, [escFunction]);
 
   return (
     <Draggable nodeRef={nodeRef}>
