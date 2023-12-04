@@ -25,7 +25,7 @@ const Dot = (props) => {
       >
         {isEditing && (
           <div>
-            <ColorPicker calback={setColorAndClose} />
+            <ColorPicker selectedColor={color} calback={setColorAndClose} />
           </div>
         )}
       </div>

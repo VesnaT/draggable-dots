@@ -10,8 +10,8 @@
 .dot {
   margin: 10px;
   border: 2px solid #333;
-  width: 190px;
-  min-height: 190px;
+  width: 200px;
+  min-height: 200px;
   border-radius: 50%;
   text-align: center;
 }
@@ -22,26 +22,25 @@
 
 .picker {
   border: 2px solid #333;
-  background: aliceblue;
+  background: #fff;
   border-radius: 7px;
   cursor: default;
   display: flex;
   flex-wrap: wrap;
-  max-width: 230px;
-  padding: 4px;
+  width: 204px;
+  padding: 10px;
 }
 
 .picker-circle {
-  border: none;
   border-radius: 50%;
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   cursor: pointer;
-  margin: 4px;
+  margin: 3px;
 }
 
 .picker-circle:hover {
-  width: 30px;
-  height: 30px;
-  margin: 2px;
+  width: 32px;
+  height: 32px;
+  margin: 1px;
 }

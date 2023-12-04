@@ -1,13 +1,23 @@
 const Circle = (props) => {
+  let background = props.color;
+  let boxShadow = "none";
+  let border = `3px solid ${props.color}`;
+  if (props.isSelected) {
+    background = "#fff";
+    boxShadow = `0 0 4px 2px ${props.color}`;
+  }
   return (
     <button
       className="picker-circle"
-      style={{ background: props.color }}
+      style={{
+        background: background,
+        border: border,
+        "box-shadow": boxShadow,
+      }}
       onClick={() => props.calback(props.color)}
     />
   );
 };
-
 export const colors = [
   "#f44336",
   "#e91e63",
@@ -33,7 +43,12 @@ const ColorPicker = (props) => {
   return (
     <div className="picker">
       {colors.map((c) => (
-        <Circle key={c} color={c} calback={props.calback} />
+        <Circle
+          key={c}
+          color={c}
+          isSelected={props.selectedColor === c}
+          calback={props.calback}
+        />
       ))}
     </div>
   );
