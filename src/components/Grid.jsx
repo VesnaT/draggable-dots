@@ -1,11 +1,12 @@
 import Dot from "./Dot";
 import { useState } from "react";
+import { colors } from "./ColorPicker";
 
 const Grid = () => {
   const [dots, setDots] = useState([
-    { id: 0, color: "#66C2A5" },
-    { id: 1, color: "#FC8D62" },
-    { id: 2, color: "#8DA0CB" },
+    { id: 0, color: colors[Math.floor(Math.random() * colors.length)] },
+    { id: 1, color: colors[Math.floor(Math.random() * colors.length)] },
+    { id: 2, color: colors[Math.floor(Math.random() * colors.length)] },
   ]);
 
   return (
