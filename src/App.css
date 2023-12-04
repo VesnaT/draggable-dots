@@ -25,7 +25,10 @@
   background: aliceblue;
   border-radius: 7px;
   cursor: default;
-  width: 228px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 230px;
+  padding: 4px;
 }
 
 .picker-circle {
@@ -40,5 +43,5 @@
 .picker-circle:hover {
   width: 30px;
   height: 30px;
-  margin: 0px;
+  margin: 2px;
 }
