@@ -11,8 +11,8 @@ const Grid = () => {
 
   return (
     <div className="grid">
-      {dots.map((dot) => (
-        <Dot key={dot.id} color={dot.color} />
+      {Object.keys(dots).map((dotID) => (
+        <Dot key={dotID} id={dotID} color={dots[dotID].color} />
       ))}
     </div>
   );

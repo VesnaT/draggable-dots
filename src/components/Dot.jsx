@@ -6,9 +6,22 @@ const Dot = (props) => {
   const nodeRef = useRef(null);
   const [color, setColor] = useState(props.color);
   const [isEditing, setIsEditing] = useState(false);
+
+  const saveColor = (color) => {
+    const endpoint = "http://127.0.0.1:5000/data";
+    console.log("color", color);
+
+    fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ [props.id]: { color: color } }),
+    });
+  };
+
   const setColorAndClose = (col) => {
     setColor(col);
-    setIsEditing(false);
+    // setIsEditing(false);
+    saveColor(col);
   };
 
   const escFunction = useCallback((event) => {
