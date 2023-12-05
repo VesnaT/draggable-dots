@@ -1,13 +1,13 @@
 import Dot from "./Dot";
-import { useState } from "react";
-import { colors } from "./ColorPicker";
+import { useEffect, useState } from "react";
 
 const Grid = () => {
-  const [dots, setDots] = useState([
-    { id: 0, color: colors[Math.floor(Math.random() * colors.length)] },
-    { id: 1, color: colors[Math.floor(Math.random() * colors.length)] },
-    { id: 2, color: colors[Math.floor(Math.random() * colors.length)] },
-  ]);
+  const [dots, setDots] = useState([]);
+
+  useEffect(() => {
+    const endpoint = "http://127.0.0.1:5000/data";
+    fetch(endpoint).then((res) => res.json().then((data) => setDots(data)));
+  }, []);
 
   return (
     <div className="grid">
