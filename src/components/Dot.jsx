@@ -1,6 +1,7 @@
 import Draggable from "react-draggable";
-import { useState, useRef, useCallback, useEffect } from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import ColorPicker from "./ColorPicker";
+import { socket } from "../socket";
 
 const Dot = (props) => {
   const nodeRef = useRef(null);
@@ -22,7 +23,24 @@ const Dot = (props) => {
     setColor(col);
     // setIsEditing(false);
     saveColor(col);
+    socket.emit("foo", JSON.stringify({ [props.id]: { color: col } }));
   };
+
+  useEffect(() => {
+    console.log("useEffect");
+    function onFooEvent(value) {
+      let dict = JSON.parse(value);
+      let key = Object.keys(dict)[0];
+      if (key == props.id) {
+        setColor(dict[key].color);
+      }
+    }
+
+    socket.on("foo", onFooEvent);
+    return () => {
+      socket.off("foo", onFooEvent);
+    };
+  }, []);
 
   const escFunction = useCallback((event) => {
     if (event.key === "Escape") {
