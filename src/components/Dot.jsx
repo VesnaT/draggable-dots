@@ -8,21 +8,9 @@ const Dot = (props) => {
   const [color, setColor] = useState(props.color);
   const [isEditing, setIsEditing] = useState(false);
 
-  const saveColor = (color) => {
-    const endpoint = "http://127.0.0.1:5000/data";
-    console.log("color", color);
-
-    fetch(endpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ [props.id]: { color: color } }),
-    });
-  };
-
-  const setColorAndClose = (col) => {
+  const setColorAndSave = (col) => {
     setColor(col);
     // setIsEditing(false);
-    saveColor(col);
     socket.emit("dot", JSON.stringify({ [props.id]: { color: col } }));
   };
 
@@ -69,7 +57,7 @@ const Dot = (props) => {
       >
         {isEditing && (
           <div>
-            <ColorPicker selectedColor={color} calback={setColorAndClose} />
+            <ColorPicker selectedColor={color} calback={setColorAndSave} />
           </div>
         )}
       </div>
