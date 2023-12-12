@@ -64,7 +64,7 @@ const Dot = (props) => {
   };
 
   return (
-    <Draggable nodeRef={nodeRef} onStop={handleStop} position={{ x: x, y: y }}>
+    <Draggable nodeRef={nodeRef} onDrag={handleStop} position={{ x: x, y: y }}>
       <div
         ref={nodeRef}
         className="dot"
