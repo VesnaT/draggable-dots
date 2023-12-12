@@ -23,7 +23,7 @@ const Dot = (props) => {
     setColor(col);
     // setIsEditing(false);
     saveColor(col);
-    socket.emit("foo", JSON.stringify({ [props.id]: { color: col } }));
+    socket.emit("dot", JSON.stringify({ [props.id]: { color: col } }));
   };
 
   useEffect(() => {
@@ -36,9 +36,9 @@ const Dot = (props) => {
       }
     }
 
-    socket.on("foo", onFooEvent);
+    socket.on("dot", onFooEvent);
     return () => {
-      socket.off("foo", onFooEvent);
+      socket.off("dot", onFooEvent);
     };
   }, []);
 
